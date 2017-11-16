@@ -4,16 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Hello world!
+ * Class to convert from decimal numbers to Roman numerals
  *
  */
 public class Converter 
 {
-	private static Map<Integer, String> base = new HashMap<Integer, String>();
-	private static String result = "";
-	private static int value;
+	private Map<Integer, String> base = new HashMap<Integer, String>();
+	private int value;
 	
-	Converter(){
+	public Converter(){
 		base.put(1, "I");
 		base.put(5, "V");
 		base.put(10, "X");
@@ -23,51 +22,82 @@ public class Converter
 		base.put(1000, "M");
 	}
 	
-	public float getValue() {
+	public int getValue() {
 		return value;
 	}
 
 	public void setValue(int value) {
 		this.value = value;
 	}
-
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
     
-    public static String convert(){
-    	result = "";
+    public String convert(){
+    	StringBuilder result = new StringBuilder(100);
     	while (value > 0){
 	    	if (value >= 1000){
-	    		result += base.get(1000);
+	    		result.append(base.get(1000));
 	    		value -= 1000;
 	    	}
 	    	else if(value >= 500){
-	    		result += base.get(500);
-	    		value -= 500;
+	    		if (value < 900){
+		    		result.append(base.get(500));
+		    		value -= 500;
+	    		}
+	    		else{
+		    		result.append(base.get(100) + base.get(1000));
+		    		value -= 900;
+	    		}
 	    	}
 	    	else if(value >= 100){
-	    		result += base.get(100);
-	    		value -= 100;
+	    		if (value < 400){
+		    		result.append(base.get(100));
+		    		value -= 100;
+	    		}
+	    		else{
+		    		result.append(base.get(100) + base.get(500));
+		    		value -= 400;
+	    		}
 	    	}
 	    	else if(value >= 50){
-	    		result += base.get(50);
-	    		value -= 50;
+	    		if (value < 90){
+		    		result.append(base.get(50));
+		    		value -= 50;
+	    		}
+	    		else{
+	    			result.append(base.get(10) + base.get(100));
+		    		value -= 90;
+	    		}
 	    	}
 	    	else if(value >= 10){
-	    		result += base.get(10);
-	    		value -= 10;
+	    		if (value < 40){
+		    		result.append(base.get(10));
+		    		value -= 10;
+	    		}
+	    		else{
+	    			result.append(base.get(10) + base.get(50));
+		    		value -= 40;
+	    		}
 	    	}
 	    	else if(value >= 5){
-	    		result += base.get(5);
-	    		value -= 5;
+	    		if (value == 9){
+	    			result.append(base.get(1) + base.get(10));
+	    			value -= 9;
+	    		}
+	    		else{
+	    			result.append(base.get(5));
+	    			value -= 5;
+	    		}
 	    	}
 	    	else if(value >= 1){
-	    		result += base.get(1);
-	    		value -= 1;
+	    		if (value == 4){
+	    			result.append(base.get(1) + base.get(5));
+	    			value -= 5;
+	    		}
+	    		else{
+		    		result.append(base.get(1));
+		    		value -= 1;
+	    		}
 	    	}
     	}
-    	return result;
+    	return result.toString();
     }
 }
