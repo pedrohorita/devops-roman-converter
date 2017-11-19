@@ -41,24 +41,24 @@ Funcionalidade: Converter numeros em algarismos romanos
       
       
     Exemplos: Converter numeros limites
-      | numero  | resultado	|
-      |    1    | I 				|
+      | numero  | resultado |
+      |    1    |     I     |
       |   3999 	| MMMCMXCIX |
       
       
       
-		Exemplos: Converter numeros menores que 1
-      | numero  	| 					resultado							 |
-      |    0    	| Número base deve ser de 1 a 3999 |
-      |   -50 	  | Número base deve ser de 1 a 3999 |
-      |   -200    | Número base deve ser de 1 a 3999 |
+    Exemplos: Converter numeros menores que 1
+      | numero |             resultado            |
+      |   0    | Número base deve ser de 1 a 3999 |
+      |  -50   | Número base deve ser de 1 a 3999 |
+      |  -200  | Número base deve ser de 1 a 3999 |
       
       
       
-		Exemplos: Converter numeros maiores que 3999
-      | numero  	| 					resultado 						 |
-      |   4000    | Número base deve ser de 1 a 3999 |
-      |   50000 	| Número base deve ser de 1 a 3999 |
-      |   100000  | Número base deve ser de 1 a 3999 |
+    Exemplos: Converter numeros maiores que 3999
+      | numero  |            resultado             |
+      | 4000    | Número base deve ser de 1 a 3999 |
+      | 50000   | Número base deve ser de 1 a 3999 |
+      | 100000  | Número base deve ser de 1 a 3999 |
       
 
