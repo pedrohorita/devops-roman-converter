@@ -1,32 +1,14 @@
 # language: pt
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
-@tag
-Funcionalidade: Converter numeros em algorismos romanos
+#Autores: Fernanda Montanari (fmontanarisa@gmail.com) e Pedro Horita (pedro_horita@hotmail.com)
 
-  @tag1
-  Esquema do Cenario: Converter numero base
+Funcionalidade: Converter numeros em algarismos romanos
+
+  Esquema do Cenario: Converter numero base de 1 a 3999
     Dado um Converter 
     Quando informo o numero base <numero>
-    Então o resultado deve ser uma unica letra, <resultado>
+    Então o resultado deve ser o algarismo romano <resultado>
 
-    Exemplos: 
+    Exemplos: Retorno de uma letra representando o algarismo
       | numero  | resultado |
       |    1    |     I     |
       |    5    |     V     |
@@ -36,13 +18,8 @@ Funcionalidade: Converter numeros em algorismos romanos
       |   500   |     D     |
       |   1000  |     M     |
   
-  @tag2
-  Esquema do Cenario: Converter numero que resulte em dois algorismos
-    Dado um Converter 
-    Quando informo o numero <numero>
-    Então o resultado deve ser com duas letras, <resultado>
 
-    Exemplos: 
+    Exemplos: Retorno de duas letras representando o algarismo
       | numero  | resultado |
       |   15    |    XV     |
       |    6    |    VI     |
@@ -52,13 +29,8 @@ Funcionalidade: Converter numeros em algorismos romanos
       |   1050  |    ML     |
       |   2     |    II     |
   
-  @tag3
-  Esquema do Cenario: Converter numeros menores que os bases
-    Dado um Converter 
-    Quando informo o numero <numero>
-    Então o resultado deve ser correto, <resultado>
 
-    Exemplos: 
+    Exemplos: Converter numeros menores que os bases
       | numero  | resultado |
       |    4    |     IV    |
       |    9    |     IX    |
@@ -66,5 +38,27 @@ Funcionalidade: Converter numeros em algorismos romanos
       |   399   |   CCCXCIX |
       |   430   |    CDXXX  |
       |   900   |      CM   |
+      
+      
+    Exemplos: Converter numeros limites
+      | numero  | resultado	|
+      |    1    | I 				|
+      |   3999 	| MMMCMXCIX |
+      
+      
+      
+		Exemplos: Converter numeros menores que 1
+      | numero  	| 					resultado							 |
+      |    0    	| Número base deve ser de 1 a 3999 |
+      |   -50 	  | Número base deve ser de 1 a 3999 |
+      |   -200    | Número base deve ser de 1 a 3999 |
+      
+      
+      
+		Exemplos: Converter numeros maiores que 3999
+      | numero  	| 					resultado 						 |
+      |   4000    | Número base deve ser de 1 a 3999 |
+      |   50000 	| Número base deve ser de 1 a 3999 |
+      |   100000  | Número base deve ser de 1 a 3999 |
       
 

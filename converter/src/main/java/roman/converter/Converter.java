@@ -31,6 +31,9 @@ public class Converter
 	}
     
     public String convert(){
+    	if (value < 1 || value > 3999) {
+    		return "Número base deve ser de 1 a 3999";
+    	}
     	StringBuilder result = new StringBuilder(100);
     	while (value > 0){
 	    	if (value >= 1000){
